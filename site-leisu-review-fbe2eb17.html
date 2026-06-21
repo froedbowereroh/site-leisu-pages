@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>雷速 · 信息获取新方式</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fcf9f2;       /* 米白基调 */
+      font-family: "Noto Serif SC", "Source Han Serif CN", "Times New Roman", Georgia, serif;
+      line-height: 1.7;
+      color: #352e2a;
+      padding: 2rem 1.2rem 3.2rem;
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 840px;
+      margin: 0 auto;
+      background: rgba(255, 252, 245, 0.8);
+      padding: 2.4rem 2rem 3rem;
+      border-radius: 32px 32px 40px 40px;
+      box-shadow: 0 8px 28px rgba(120, 80, 50, 0.04), 0 2px 6px rgba(0,0,0,0.02);
+      backdrop-filter: blur(2px);
+    }
+
+    /* 主视觉 — 干净 文章式 标题区 */
+    .hero {
+      margin-bottom: 2.8rem;
+      border-bottom: 1px solid #e4dcd0;
+      padding-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: #2f2823;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+      word-break: break-word;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #6f6359;
+      border-left: 3px solid #b9a18c;
+      padding-left: 1.1rem;
+      margin: 0.8rem 0 0.2rem;
+      font-style: normal;
+    }
+
+    /* 正文排版 */
+    p {
+      margin-bottom: 1.4rem;
+      font-size: 1.02rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      color: #3e3530;
+    }
+
+    /* 引用块 / 提示框 温和而克制的设计 */
+    .insight-box {
+      background: #f6efe6;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0 2.2rem;
+      border: 1px solid #e1d4c5;
+      box-shadow: inset 0 1px 4px rgba(190, 165, 140, 0.06);
+    }
+
+    .insight-box p {
+      margin-bottom: 0.6rem;
+      font-size: 0.98rem;
+    }
+
+    .insight-box .tag {
+      display: inline-block;
+      background: #dacfc2;
+      color: #2f2823;
+      font-size: 0.8rem;
+      padding: 0.15rem 1rem;
+      border-radius: 30px;
+      letter-spacing: 0.5px;
+      font-family: inherit;
+      margin-bottom: 0.6rem;
+    }
+
+    /* 卡片组 — 信息卡片式 */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2.6rem 0 2rem;
+    }
+
+    .card-item {
+      flex: 1 1 200px;
+      background: #fff9f0;
+      padding: 1.5rem 1.2rem 1.2rem;
+      border-radius: 28px;
+      border: 1px solid #e7ddd0;
+      transition: box-shadow 0.1s ease;
+      box-shadow: 0 2px 6px rgba(160, 130, 100, 0.04);
+    }
+
+    .card-item h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: #35251c;
+      margin-bottom: 0.4rem;
+      border-bottom: 2px dotted #dacfc2;
+      padding-bottom: 0.35rem;
+      display: inline-block;
+    }
+
+    .card-item p {
+      font-size: 0.95rem;
+      margin: 0.8rem 0 0;
+      color: #4d423b;
+    }
+
+    /* 适合人群 用更段落化的方式 */
+    .audience-wrap {
+      margin: 2.4rem 0 1.6rem;
+      background: #f7f2ea;
+      padding: 1.3rem 1.8rem;
+      border-radius: 30px;
+    }
+
+    .audience-wrap strong {
+      font-weight: 500;
+      color: #3d2d23;
+    }
+
+    .audience-wrap span {
+      display: inline-block;
+      background: #e5d9cc;
+      padding: 0.05rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      margin: 0.25rem 0.15rem;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      margin: 2rem 0 1.8rem;
+      font-size: 1.03rem;
+      background: #f9f4ec;
+      padding: 1.4rem 1.8rem;
+      border-radius: 28px;
+      border-left: 4px solid #ad957f;
+    }
+
+    .link-paragraph a {
+      color: #3a5e4c;
+      text-decoration: none;
+      font-weight: 400;
+      border-bottom: 1px solid #b3a08e;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .link-paragraph a:hover {
+      border-bottom-color: #2f5b42;
+      color: #1c3e2f;
+    }
+
+    /* 常见问题摘要 (FAQ风格，而非完全展开) */
+    .faq-note {
+      margin-top: 2.8rem;
+      border-top: 1px dashed #dad0c2;
+      padding-top: 1.6rem;
+    }
+
+    .faq-note summary {
+      cursor: default;
+      font-weight: 400;
+      font-size: 1rem;
+      color: #4d3d30;
+      padding: 0.2rem 0;
+      list-style: none;
+    }
+
+    .faq-note summary::before {
+      content: "▹ ";
+      color: #a58870;
+    }
+
+    .faq-note details {
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-note details p {
+      margin: 0.4rem 0 0.5rem 1.2rem;
+      font-size: 0.95rem;
+      color: #5b4f45;
+      border-left: 2px solid #ddd0bf;
+      padding-left: 1rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e7ddd0;
+      margin: 2.2rem 0 0.5rem;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #847569;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    a {
+      color: #3e5c49;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 580px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page {
+        padding: 1.6rem 1.2rem 2rem;
+        border-radius: 28px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .card-grid {
+        gap: 1rem;
+      }
+      .card-item {
+        flex: 1 1 100%;
+      }
+      .insight-box {
+        padding: 1.2rem;
+      }
+      .link-paragraph {
+        padding: 1rem 1.2rem;
+      }
+    }
+
+    @media (min-width: 840px) {
+      .page {
+        padding: 3rem 3.2rem 3.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  
+  <!-- 主视觉区 -->
+  <div class="hero">
+    <h1>雷速 · 信息流的安静路口</h1>
+    <div class="sub">不必费力辨认，只需自然阅读</div>
+  </div>
+
+  <!-- 开篇段落：用户视角，快速识别用途 -->
+  <p class="lead">
+    当你打开一个陌生的站点，第一眼总想知道“这里能做什么”。<strong>雷速</strong>并不急于宣告自己是什么，而是让你在浏览中自然感受到它的倾向：一种整合、一种筛选、一种有节制的信息呈现。它不追求让所有人停留，但能为恰好需要它的人省下不少时间。
+  </p>
+
+  <!-- 用途卡片区域 — 信息卡片式表达 -->
+  <div class="card-grid">
+    <div class="card-item">
+      <h3>简要索引</h3>
+      <p>日常阅读、主题聚焦、快速跳转——这些功能像安静的路标，不喧哗但准确。你可以在不同板块间找到自己关心的内容。</p>
+    </div>
+    <div class="card-item">
+      <h3>可筛选的视野</h3>
+      <p>从资讯到观点，从工具到参考，网站提供了分类浏览的可能，但不会用弹窗或强提醒干扰你的节奏。</p>
+    </div>
+    <div class="card-item">
+      <h3>轻量感知</h3>
+      <p>页面响应直接，没有冗余的加载动画，也没有复杂注册流程。打开即用，关闭即走，符合直觉。</p>
+    </div>
+  </div>
+
+  <!-- 引用块 / 提示框（表达一种温和的观察） -->
+  <div class="insight-box">
+    <span class="tag">使用感受</span>
+    <p>有人形容第一次使用雷速时，像走进一家不主动推销的书店，可以随手翻阅，也可以带着目的寻找。这种不打扰的设计，慢慢积累了一些习惯性访客。</p>
+    <p style="margin-top:0.4rem;">—— 它不靠视觉冲击留住你，而是靠内容的组织方式让你愿意多待一会儿。</p>
+  </div>
+
+  <!-- 适合人群（以更段落式、标签式呈现） -->
+  <div class="audience-wrap">
+    <strong>常来的朋友</strong> 包括：<span>日常信息搜集者</span> <span>不喜欢信息轰炸的人</span> <span>寻找特定领域内容的人</span> <span>对排版整洁有偏好的读者</span>。<br>
+    <span style="display:inline; background:transparent; padding:0; margin:0; font-size:0.95rem;">当然，也欢迎偶尔路过、随便看看的你。</span>
+  </div>
+
+  <!-- 自然链接段落 —— 将 a 标签嵌入完整句子 -->
+  <div class="link-paragraph">
+    如果你好奇上面提到的这些感受是否准确，不妨直接去 <a href="https://site--leisu.com">雷速</a> 看一看。页面上的每一个设计细节，都比文字描述更有说服力。没有引导注册的弹窗，也没有紧迫的催促，你可以按照自己的节奏探索。
+  </div>
+
+  <!-- 另一段补充自然段落，嵌入第二层用途说明 -->
+  <p>
+    很多人在使用一段时间后，会慢慢形成自己的浏览习惯：先看最新内容，再根据兴趣标签深入。网站没有强行定义“你应该看什么”，而是把选择权交还给读者。这种克制，在今天的网络环境里反而显得特别。
+  </p>
+
+  <!-- FAQ 摘要 三个常见的轻问题 非完整Q&A -->
+  <div class="faq-note">
+    <details>
+      <summary>需要注册或者登录吗？</summary>
+      <p>目前大部分内容可以直接浏览，不需要账户。部分互动功能可能后续开放，但阅读始终是自由开放的。</p>
+    </details>
+    <details>
+      <summary>内容更新频率如何？</summary>
+      <p>更新节奏稳定但不密集，偏向质量而非数量，可以隔几天来看一次，不必时时刷新。</p>
+    </details>
+    <details>
+      <summary>移动端体验怎么样？</summary>
+      <p>页面适配了手机和平板，字体大小和间距都做了对应调整，阅读体验比较舒服。</p>
+    </details>
+  </div>
+
+  <hr>
+  <div class="footer-note">
+    <span>以温和的方式获取信息 · 雷速</span>
+  </div>
+
+</div>
+</body>
+</html>
