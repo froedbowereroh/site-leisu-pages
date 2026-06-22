@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩指南 · 简明访问提醒</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f5f7fa;
+      color: #1e2a3a;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0b1a2e 0%, #1c3a5a 100%);
+      padding: 4rem 2rem 3.5rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #e8edf3;
+      margin-bottom: 0.75rem;
+    }
+    .hero .sub {
+      color: #b0c7de;
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.2rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    .intro {
+      font-size: 1.1rem;
+      color: #2c3e50;
+      margin-bottom: 2.2rem;
+      padding: 0.5rem 0 0.5rem 1rem;
+      border-left: 4px solid #1c6ea4;
+      background: #f0f4fa;
+      border-radius: 0 6px 6px 0;
+    }
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 20, 30, 0.04);
+      border: 1px solid #eaeef4;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 18px rgba(28, 110, 164, 0.08);
+      border-color: #d0ddee;
+    }
+    .card h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #163a5c;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+    }
+    .card p {
+      margin-bottom: 0.6rem;
+      color: #2f4057;
+    }
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+    .highlight-link {
+      color: #1a6d9e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(26, 109, 158, 0.2);
+      transition: border-color 0.2s, color 0.15s;
+    }
+    .highlight-link:hover {
+      color: #0a4b72;
+      border-bottom-color: #0a4b72;
+    }
+    .blockquote {
+      background: #eef3f9;
+      padding: 1.2rem 1.8rem;
+      border-radius: 12px;
+      margin: 1.8rem 0 1rem;
+      border-left: 6px solid #1c6ea4;
+      font-style: normal;
+      color: #1e3b56;
+    }
+    .blockquote strong {
+      color: #0f3d5c;
+    }
+    .faq-item {
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed #dbe3ed;
+    }
+    .faq-item:first-of-type {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+    .faq-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a4a6e;
+      margin-bottom: 0.25rem;
+    }
+    .faq-item p {
+      color: #38506b;
+      font-size: 0.95rem;
+    }
+    .visit-note {
+      margin-top: 2.5rem;
+      padding: 1rem 1.5rem;
+      background: #f9fbff;
+      border-radius: 12px;
+      border: 1px solid #d4e2f0;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6f7e92;
+      border-top: 1px solid #dce4ed;
+      padding-top: 2rem;
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 2.8rem 1.2rem 2.5rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .container { padding: 1.8rem 1rem 3rem; }
+      .card { padding: 1.4rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>简明竞彩指南</h1>
+    <div class="sub">从投注逻辑到访问提醒 · 信息密度合宜</div>
+  </header>
+
+  <div class="container">
+    <div class="intro">
+      <strong>导语</strong> —— 竞彩不是没有章法的博弈，它建立在赛事分析、赔付模型与资金管理之上。本文聚焦基础框架与平台选择原则，帮助参与者建立更清晰的认知边界。
+    </div>
+
+    <div class="card-list">
+
+      <div class="card">
+        <h2>核心结构：三要素</h2>
+        <p>任何竞彩方案都绕不开三个变量：<strong>赛事基本面</strong>（状态、伤病、主客差异）、<strong>赔付刻度</strong>（胜平负、让球、大小分）以及<strong>时限与额度</strong>。三者相互制衡，忽略其一往往导致决策偏差。</p>
+        <p>成熟的访问者会先明确自己关注的是数字概率还是赛事理解，这决定了后续信息筛选的颗粒度。</p>
+      </div>
+
+      <div class="card">
+        <h2>数据阅读与常见误区</h2>
+        <p>很多参与者过度聚焦于即时赔率的波动，却忽略了初始结构所包含的预设信息。更值得关注的是长时间跨度的赔付一致性——频繁跳变的数字背后往往缺乏稳定逻辑。</p>
+        <p>建议将每周的访问频次与单次停留时长控制在合理范围，保持对信息的“冷处理”习惯，而非被节奏推着走。</p>
+      </div>
+
+      <div class="card">
+        <h2>平台辨识与访问提示</h2>
+        <p>在国内合规框架下，获取竞彩信息需要依赖稳定且清晰的渠道。以 <a href="https://main-index-sporttery.com" class="highlight-link">竞彩网</a> 为例，其界面编排偏向信息密度优先，适合需要快速检索赔付数据与赛事列表的用户。访问前建议确认网络环境与设备适配，避免因页面渲染问题遗漏关键字段。</p>
+        <p>另外，每次访问时留意页面底部的数据时间戳，确保所参考的赔付数值处于有效区间内。</p>
+      </div>
+
+    </div>
+
+    <div class="blockquote">
+      <strong>引用提示</strong> —— “竞彩的有效性不在于你看到了多少信息，而在于你过滤掉了多少噪音。工具是固定的，但使用工具的方式决定了长期体验。”
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div style="margin: 2rem 0 0.5rem;">
+      <h2 style="font-size:1.25rem; color:#163a5c; margin-bottom:0.6rem;">快速区间 · 常见关切</h2>
+      <div class="faq-item">
+        <h3>初次接触，从哪里切入？</h3>
+        <p>建议先熟悉赛事结构（联赛、杯赛、国家队周期），再结合赔付面板观察阈值变化。不要同时关注超过三个联赛，认知负荷过大会降低判断质量。</p>
+      </div>
+      <div class="faq-item">
+        <h3>数据更新频率如何确认？</h3>
+        <p>多数专业页面会在界面角落或表格表头标注最后刷新时间。若超过15分钟未更新，建议主动刷新或更换时段访问。</p>
+      </div>
+      <div class="faq-item">
+        <h3>是否需要同时打开多个标签页？</h3>
+        <p>不推荐。单一信息流更容易建立参照系。若确实需要对比，可以固定两个窗口：一个用于主数据面板，另一个用于赛事新闻或伤停列表。</p>
+      </div>
+    </div>
+
+    <div class="visit-note">
+      <span style="background: #e2edf7; padding: 0.2rem 0.8rem; border-radius: 30px; font-size: 0.9rem;">访问句</span>
+      <p style="margin-top: 0.6rem;">保持节奏，保持清晰。每次打开 <a href="https://main-index-sporttery.com" class="highlight-link">竞彩网</a> 之前，先问自己一句：今天要看什么，看到什么程度就可以停下来。</p>
+    </div>
+
+    <div class="footer-note">
+      简明指南 · 投注前请理性评估风险 · 数据仅供参考
+    </div>
+  </div>
+</body>
+</html>
